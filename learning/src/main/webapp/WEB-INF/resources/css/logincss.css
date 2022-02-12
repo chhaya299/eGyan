@@ -1,0 +1,39 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image:linear-gradient(to right,rgba(221, 218, 10, 0.335),rgba(0, 0, 0, 0.5)),url(https://images.pexels.com/photos/946250/pexels-photo-946250.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-size: cover;
+}
+
+.row {
+  
+	background-color: darkgray;
+	border-radius: 30px;
+	box-shadow: 12px 12px 22px grey;
+}
+
+img {
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+
+.bt1 {
+	border: none;
+	outline: none;
+	height: 50px;
+	width: 100%;
+	background-color: black;
+	color: white;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+.bt1:hover {
+	background-color: white;
+	border: 1px solid;
+	color: black;
+}

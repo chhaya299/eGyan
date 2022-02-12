@@ -1,0 +1,10 @@
+body{
+ color:black;
+    background-image:linear-gradient(to right,rgba(221, 218, 10, 0.335),rgba(0, 0, 0, 0.5)),url(https://images.pexels.com/photos/946250/pexels-photo-946250.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-size: cover;
+    
+}
+.col-md-6{
+background-color:white;
+
+}
