@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +17,7 @@ import learning.services.StudentServices;
 @Controller
 public class StudentController {
 
-	private HttpSession session =null; 
+	public HttpSession session =null; 
 	
 	@Autowired
 	private StudentServices studentServices;
@@ -27,9 +28,14 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value= "/handle-register-student", method = RequestMethod.POST)
-	public String registerHandler(@ModelAttribute Student student) {
-	
-		return "login-student";	
+	public String registerHandler(@ModelAttribute Student student,Model m) {
+	   String st =	this.studentServices.saveStudent(student);
+	   if(!st.equals("data inserted"))
+		{
+		   m.addAttribute("msg","Student Already  Registered !");
+		   return "registerFormStudent";
+	     }
+		return "LoginStudent";	
 	}
 	
 	@RequestMapping("/login-student")
@@ -37,15 +43,17 @@ public class StudentController {
 		return "LoginStudent";
 	}
 	@RequestMapping(value="/handle-loginStudent",  method = RequestMethod.POST)
-	public String loginHandler(@ModelAttribute Login login,HttpServletRequest req) {
+	public String loginHandler(@ModelAttribute Login login,HttpServletRequest req,Model m) {
 		// verify login and to  then go to student homes
 		Student student = this.studentServices.validate(login);
 		if(student!=null) {
 		 session = req.getSession();
 	     session.setAttribute("student", student);
+	   
 	     		return "";
 	     }
-			return "";
+			m.addAttribute("msg", "please Enter Correct Email and Password! ");
+			return "LoginStudent";
 	}
 	
 	public Student getUser() {

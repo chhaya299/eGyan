@@ -10,6 +10,11 @@
 <title>Registration Student</title>
 </head>
 <body>
+<div class="col-lg-7 px-5 pt-5">
+				<%  if(request.getAttribute("msg")!=null)
+				{ 
+				%><h3><%=request.getAttribute("msg") %></h3>
+			  <%}%>
 
 	<div class="container mt-5 p-2">
 		<div class="row">

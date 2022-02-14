@@ -31,4 +31,18 @@ public class StudentServices {
 		 return  null;
 	}
 	
+	
+	public  String saveStudent(Student s) {
+		String st = this.studentDao.addStudent(s);
+		if(st.equals("data inserted"))
+		{
+			Login login = new Login();
+			login.setEmail(s.getEmail());
+			String pass = s.getFirstName();
+			login.setPassword(pass);
+			login.setType("student");
+			this.loginDao.addLogin(login);
+		}
+	     return st;
+	}
 }

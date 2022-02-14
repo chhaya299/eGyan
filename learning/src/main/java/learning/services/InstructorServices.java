@@ -26,7 +26,7 @@ public class InstructorServices {
 		
 				Login login = new Login();
 				login.setEmail(instructor.getEmail());
-				String pass = instructor.getFirstName()+" "+instructor.getLastName();
+				String pass = instructor.getFirstName();
 				login.setPassword(pass);
 				login.setType("instructor");
 				this.loginDao.addLogin(login);

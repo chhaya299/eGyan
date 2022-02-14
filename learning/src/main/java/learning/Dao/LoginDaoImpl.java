@@ -32,9 +32,9 @@ public class LoginDaoImpl implements LoginDao{
 
 	public boolean validUser(Login login) {
 	 Session session =	this.hiber.getQuery();
-	 Query query = session.createQuery("from Login where email =:e and type =:t ",Login.class);
+	 Query query = session.createQuery("from Login where email =:e  and password=:p and type =:t ",Login.class);
 	 query.setParameter("e",login.getEmail());	
-//	 query.setParameter("p",login.getPassword());
+	 query.setParameter("p",login.getPassword());
 	 query.setParameter("t",login.getType());
 	 Object obj =null;
 	 try {

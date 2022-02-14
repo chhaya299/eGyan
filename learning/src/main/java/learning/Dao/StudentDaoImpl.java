@@ -2,12 +2,14 @@ package learning.Dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import learning.Entity.Instructor;
 import learning.Entity.Login;
@@ -22,6 +24,7 @@ public class StudentDaoImpl implements StudentDao{
 	@Autowired
 	private HibernateQueryUtility hiber;
 
+	@Transactional
 	public String addStudent(Student student) {
 		 if(validUser(student.getEmail())!=null)
 			  return "Email already Exist";
@@ -52,7 +55,12 @@ public class StudentDaoImpl implements StudentDao{
 		 Session session  = this.hiber.getQuery();
 		 Query query =session.createQuery("from Student where email=:courseId", Student.class);
 		 query.setParameter("courseId", email);
-		 Student I =(Student) query.getSingleResult();
+		 Student I = null;
+		 try{
+			I  =(Student) query.getSingleResult();
+		 }catch (NoResultException e) {
+			 return null;
+		}
 		 return I;
 	}
 

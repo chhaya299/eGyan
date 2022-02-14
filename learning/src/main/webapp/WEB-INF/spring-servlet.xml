@@ -62,6 +62,8 @@
  						<value>learning.Entity.Course</value>
  						<value>learning.Entity.Chapter</value>
  						<value>learning.Entity.Content</value>
+ 						<value>learning.Entity.Student</value>
+ 						
  				</list>
  			</property>
  </bean>
