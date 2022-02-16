@@ -63,7 +63,7 @@
  						<value>learning.Entity.Chapter</value>
  						<value>learning.Entity.Content</value>
  						<value>learning.Entity.Student</value>
- 						
+ 						<value>learning.Entity.Enrollment</value>
  				</list>
  			</property>
  </bean>

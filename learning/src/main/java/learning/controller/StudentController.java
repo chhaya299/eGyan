@@ -95,8 +95,29 @@ public class StudentController {
           enroll.setEnrollStudentId(student.getStudentId());
           enroll.setEnrollCourseId(id);
           this.studentServices.addenrollStudent(enroll);
-        return "";    
+        return "redirect:/studentDetail";    
     } 
+	
+	@RequestMapping("/studentDetail")
+	public String studentDetail(Model m) {
+		    Student  stud = getUser();
+		    if(stud!=null) {
+		    	List<Course> courses =this.studentServices.courseFiterByEnrollment(stud.getStudentId());
+		    	List<Course> list =	this.courseServices.getCourses();
+		    	for(Course course:courses) {
+		    		if(list.contains(course)) {
+		    			 list.remove(course);
+		    		}
+		    	}
+		    	System.out.println("course enrollment table :"+courses);
+		    	System.out.println("all courses:"+list);
+		    	m.addAttribute("EnrollCourse", courses);
+		    	m.addAttribute("List", list);
+		    	m.addAttribute("student1",getUser());
+		    	return "studentCourses";
+		    }
+		return "index";  
+	}
 	
 	
 }

@@ -76,7 +76,8 @@ public class ChapterImpl  implements ChapterDao{
 		
 		Query query = session.createQuery("from Chapter where chapterCourseId=:courseId",Chapter.class);
 		query.setParameter("courseId", courseId);
-		return null;
+		List<Chapter> ch = query.getResultList();
+		return ch;
 	}
 	
 	

@@ -9,6 +9,7 @@
 <meta charset="ISO-8859-1">
 <title>Student Home Page</title>
 </head>
+
 <body>
   <section class="courses">
 		<div class="container py-3">
@@ -17,6 +18,7 @@
  			<div class="row py-3"> 
 	
 						<c:forEach items="${List}" var="clist"> 
+					
 						
 						<div class="col-md-4">
 						<div class="card" style="width: 18rem;">
