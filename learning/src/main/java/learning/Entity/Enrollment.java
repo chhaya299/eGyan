@@ -1,6 +1,7 @@
 package learning.Entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class Enrollment {
 	private int enrollCourseId;
 	
 	@Column(name="enrollment_date",nullable=false)
-	private Date enrollDate;
+	private Date enrollDate=Date.valueOf(LocalDate.now());
 
 	public int getEnrollmentId() {
 		return enrollmentId;

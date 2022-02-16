@@ -42,4 +42,9 @@ public class CourseService {
 		public void  saveOrUpadte(Course course) {
 			this.courseDao.updateCourse(course);
 		}
+		
+		public List<Course> getCourses(){
+			List<Course> courseList = this.courseDao.getCourses();
+			return courseList;
+		}
 }

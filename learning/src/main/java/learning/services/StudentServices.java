@@ -3,9 +3,10 @@ package learning.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import learning.Dao.EnrollmentDao;
 import learning.Dao.LoginDao;
 import learning.Dao.StudentDao;
-import learning.Entity.Instructor;
+import learning.Entity.Enrollment;
 import learning.Entity.Login;
 import learning.Entity.Student;
 
@@ -17,6 +18,9 @@ public class StudentServices {
 	
 	@Autowired
 	private LoginDao loginDao;
+	
+	@Autowired
+	private EnrollmentDao enroll;
 	
 	public Student validate(Login login){
 		
@@ -44,5 +48,10 @@ public class StudentServices {
 			this.loginDao.addLogin(login);
 		}
 	     return st;
+	}
+	
+	
+	public String addenrollStudent(Enrollment enroll) {
+			return	this.enroll.enrollStudent(enroll);
 	}
 }

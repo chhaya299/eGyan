@@ -68,4 +68,6 @@ public class InstructorDaoImpl implements InstructorDao {
 		 Instructor I =(Instructor) query.getSingleResult();
 		 return I;
 	}
+
+	
 }

@@ -16,7 +16,11 @@ public interface CourseDao {
 	public String addCourse(Course course) ;
 	
 	public List<Course> getCourses(int instructorId);
+	
+	public List<Course> getCourses();
+	
 	public Course getCourse(int cid) ;
+	
 	public void updateCourse(Course course);
 	
 	public boolean isExistCourse(String title,String brief);
